@@ -15,6 +15,7 @@ type APIKeys struct {
 type APIKey struct {
 	APIKey  string     `json:"ApiKey,omitempty"`
 	Created *time.Time `json:"Created,omitempty"`
+	Expires *time.Time `json:"Expires,omitempty"`
 	Purpose string     `json:"Purpose,omitempty"`
 	UserID  string     `json:"UserId,omitempty"`
 
@@ -26,6 +27,16 @@ func NewAPIKey(purpose string, userID string) *APIKey {
 	return &APIKey{
 		Purpose:  purpose,
 		UserID:   userID,
+		resource: *newResource(),
+	}
+}
+
+// NewAPIKeyWithExpiration initializes an API key with a purpose and expiration.
+func NewAPIKey(purpose string, userID string, expires *time.Time) *APIKey {
+	return &APIKey{
+		Purpose:  purpose,
+		UserID:   userID,
+		Expires:  expires,
 		resource: *newResource(),
 	}
 }
