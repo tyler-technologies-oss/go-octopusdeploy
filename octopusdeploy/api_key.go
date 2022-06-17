@@ -32,7 +32,7 @@ func NewAPIKey(purpose string, userID string) *APIKey {
 }
 
 // NewAPIKeyWithExpiration initializes an API key with a purpose and expiration.
-func NewAPIKey(purpose string, userID string, expires *time.Time) *APIKey {
+func NewAPIKeyWithExpiration(purpose string, userID string, expires *time.Time) *APIKey {
 	return &APIKey{
 		Purpose:  purpose,
 		UserID:   userID,
