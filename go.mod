@@ -1,4 +1,4 @@
-module github.com/tyler-technologies-oss/go-octopusdeploy
+module github.com/OctopusDeploy/go-octopusdeploy
 
 go 1.18
 
